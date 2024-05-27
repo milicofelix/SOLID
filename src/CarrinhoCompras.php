@@ -1,5 +1,7 @@
 <?php
+
 namespace Solid;
+
 class CarrinhoCompras {
 
      //atributos
@@ -15,7 +17,10 @@ class CarrinhoCompras {
      }
  
      public function exibirItens() {
-         return $this->itens;
+
+        foreach($this->itens as $item) {
+            echo $item['item']. ' - '. "R$ ".number_format($item['valor'], 2, ',', '.')."<br />";
+        }
      }
  
      public function adicionarItem(string $item, float $valor) {
@@ -25,7 +30,7 @@ class CarrinhoCompras {
      }
  
      public function exibirValorTotal() {
-         return $this->valorTotal;
+         return "R$ ".number_format($this->valorTotal, 2, ',', '.');
      }
  
      public function exibirStatus() {
