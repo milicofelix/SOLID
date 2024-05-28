@@ -24,9 +24,22 @@ class CarrinhoCompras {
      }
  
      public function adicionarItem(string $item, float $valor) {
-         array_push($this->itens, ["item" => $item, "valor" => $valor]);
-         $this->valorTotal += $valor;
-         return true;
+        if($this->validaItem($item, $valor)) {
+            array_push($this->itens, ["item" => $item, "valor" => $valor]);
+            $this->valorTotal += $valor;
+            return true;
+        }
+
+        return false;
+        
+     }
+
+     public function validaItem(string $item, float $valor) {
+        if($item == '' || $valor <= 0){
+            return false;
+        }
+
+        return true;
      }
  
      public function exibirValorTotal() {

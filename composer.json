@@ -12,5 +12,7 @@
             "name": "Adriano F F"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    }
 }

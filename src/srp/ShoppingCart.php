@@ -17,9 +17,21 @@ class ShoppingCart {
     }
 
     public function addItems(Item $item) {
-        array_push($this->items, $item);
-        return true;
+        if($this->getItemValidate($item)){
+            array_push($this->items, $item);
+            return true;
+        }
+
+        return false;
     }
+
+    public function getItemValidate(Item $item) {
+        if($item->getDescription() == '' || $item->getValue() <= 0){
+            return false;
+        }
+
+        return true;
+     }
 
     public function ItemValidate() {
         return count($this->items) > 0;

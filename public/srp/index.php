@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require "../../vendor/autoload.php";
-echo "<h1>Single Resposibility Principle</h1>";
+echo "<h1>Single Responsibility Principle</h1>";
 
 use Solid\srp\ShoppingCart;
 use Solid\srp\Item;
@@ -42,3 +42,5 @@ echo "<p>Status do Pedido: ". $order->getStatus()."</p>";
 if($order->confirm()) {
     echo "<p>Envio de E-mail: ".  EmailService::sendMail()."</p>";
 }
+echo "<h3>Valida item</h3>";
+echo $item1->validItem();
