@@ -1,6 +1,6 @@
 <?php
 
-namespace Solid\srp;
+namespace Solid\Srp;
 
 class Item {
 
@@ -51,5 +51,12 @@ class Item {
         $this->value = $value;
 
         return $this;
+    }
+
+    public function validItem() {
+        if(empty($this->description) || $this->value <= 0) {
+            return false;
+        } 
+        return true;
     }
 }
