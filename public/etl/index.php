@@ -8,8 +8,20 @@ require "../../vendor/autoload.php";
 
 use Solid\ETL\Leitor;
 
-$leitor = new Leitor();
-$leitor->setDiretorio(__DIR__.'/arquivos');
-$leitor->setArquivo('dados.csv');
+/* Leito CSV */
+$leitorcsv = new Leitor();
+$leitorcsv->setDiretorio(__DIR__.'/arquivos');
+$leitorcsv->setArquivo('dados.csv');
+$csv = $leitorcsv->lerArquivo();
+
+/* Leito TXT */
+$leitortxt = new Leitor();
+$leitortxt->setDiretorio(__DIR__.'/arquivos');
+$leitortxt->setArquivo('dados.txt');
+$txt = $leitortxt->lerArquivo();
+
+$result = array_merge($csv,$txt);
+
 echo "<pre>";
-print_r($leitor->lerArquivo());
+    print_r($result);
+echo "</pre>";
